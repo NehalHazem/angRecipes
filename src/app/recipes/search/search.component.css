@@ -1,0 +1,10 @@
+#header {
+  height: 500px;
+  background-image: url('https://images.unsplash.com/photo-1533777324565-a040eb52facd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1021&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+input {
+  margin-top: 12rem !important;
+}

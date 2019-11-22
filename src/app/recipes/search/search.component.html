@@ -1,0 +1,13 @@
+<div id="header">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form [formGroup]="form">
+          <div class="form-group pt-5 pb-5">
+            <input #searchVal type="text" class="form-control mt-5 mb-5" formControlName="searchVal" placeholder="Search here ..." (keyup)="onSearch(searchVal, $event)">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<app-navbar (passCategoryData)="getCategoryData($event)"></app-navbar>
+
+<app-recipes [categoryData]="CategoryVal" *ngIf="isHome"></app-recipes>
+
+<router-outlet *ngIf="!isHome"></router-outlet>
+

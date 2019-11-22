@@ -1,0 +1,41 @@
+<app-search [clearSearchInput]="clearSearchInput" (sendSearchResults)="getSearchResults($event)"></app-search>
+
+<div class="album mt-3 py-5">
+  <div class="container">
+
+    <div class="row col-md-8">
+      <form [formGroup]="form" class="form-inline">
+        <div class="form-group">
+          <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Look Up Recipes Starts With:</label>
+          <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" formControlName="showRecipe" (change)="getRecipes(); onClearSearchInput()">
+            <option *ngFor="let letter of Alphabet" value="{{ letter }}">{{ letter }}</option>
+          </select>
+        </div>
+      </form>
+    </div>
+
+    <div class="row mt-4" *ngIf="!badReq">
+      <div *ngFor="let recipe of Recipes" class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="{{ recipe.strMealThumb }}" class="bd-placeholder-img card-img-top" width="100%" height="225">
+          <div class="card-body">
+            <h4>{{ recipe.strMeal }}</h4>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group ml-auto">
+                <button type="button" class="btn btn-primary btn-sm" (click)="saveRecipes()" [routerLink]="['/recipe', recipe.strMeal, recipe.idMeal]">Check Out</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="mt-5 mb-5" *ngIf="badReq">
+        <h2 class="text-center">No Results</h2>
+      </div>
+    </div>
+
+  </div>
+</div>
+
